@@ -8,7 +8,7 @@ class GenerateTokenProvider {
     const secretKey = process.env.SECRET_KEY as string
     const token = sign({}, secretKey, {
       subject: userId,
-      expiresIn: '120s',
+      expiresIn: '30d',
     })
 
     return token

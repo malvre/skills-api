@@ -13,6 +13,7 @@ class GetUserUseCase {
         createdAt: true,
         updatedAt: true,
         isAdmin: true,
+        skills: true,
       },
     })
 

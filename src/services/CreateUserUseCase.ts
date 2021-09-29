@@ -5,10 +5,11 @@ interface IRequest {
   name: string
   email: string
   password: string
+  bio?: string
 }
 
 class CreateUserUseCase {
-  async execute({ name, email, password }: IRequest) {
+  async execute({ name, email, password, bio }: IRequest) {
     // verifica se usuário já existe
     const userAlreadyExists = await client.user.findFirst({
       where: {
@@ -40,6 +41,7 @@ class CreateUserUseCase {
         email,
         password: passwordHash,
         isAdmin: false,
+        bio,
       },
     })
     return user

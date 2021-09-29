@@ -6,17 +6,12 @@ API REST para ser usada como base em BBF (Back-end For Front-end)
 
 ## Casos de uso
 
-- [ x ] Criar usuário
-  - [ x ] Somente admin
-- [ x ] Listar usuários
-  - [ x ] Somente usuários logados
-- [ x ] Obter um usuário
-- [ x ] Alterar usuário
-  - [ x ] Somente admin
-- [ x ] Excluir usuário
-  - [ x ] Somente admin
-- [ x ] Fazer login
-- [ x ] Refresh token
+- [ x ] Create account
+- [ x ] Login
+- [ ] Add skill
+- [ ] Remove skill
+- [ ] Search by one or many skills
+- [ ] User detail
 
 ## Entidades
 
