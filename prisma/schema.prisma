@@ -46,6 +46,7 @@ model Skill {
 }
 
 model UserSkill {
+  id        String   @id @default(uuid())
   userId    String
   user      User     @relation(fields: [userId], references: [id])
   skillId   String

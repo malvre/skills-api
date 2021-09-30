@@ -1,12 +1,17 @@
+import { Skill } from '.prisma/client'
 import { client } from '../../prisma/client'
 
 interface IRequest {
   userId: string
-  skillId: string
+  skillName: string
+  value: number
 }
 
 class AddSkillIntoUserUseCase {
-  async execute({ userId, skillId }: IRequest) {
+  skill!: Skill
+
+  async execute({ userId, skillName, value }: IRequest) {
+    // find user
     const user = await client.user.findUnique({
       where: {
         id: userId,
@@ -16,33 +21,46 @@ class AddSkillIntoUserUseCase {
       throw new Error('User not found')
     }
 
-    const skill = await client.skill.findUnique({
+    // find by skill name
+    const searchSkill = await client.skill.findFirst({
       where: {
-        id: skillId,
+        name: skillName.toLocaleLowerCase().trim(),
       },
     })
-    if (!skill) {
-      throw new Error('Skill not found')
+
+    // if not exists...
+    if (!searchSkill) {
+      const newSkill = await client.skill.create({
+        data: {
+          name: skillName.toLocaleLowerCase().trim(),
+        },
+      })
+      this.skill = newSkill
+    } else {
+      this.skill = searchSkill
     }
 
-    const alreadyExists = await client.userSkill.findFirst({
+    // check if user skill already exists
+    const userSkillAlreadyExists = await client.userSkill.findFirst({
       where: {
-        userId,
-        skillId,
+        userId: user.id,
+        skillId: this.skill.id,
       },
     })
-    if (alreadyExists) {
+    if (userSkillAlreadyExists) {
       throw new Error('User already has this skill')
     }
 
-    await client.userSkill.create({
+    // add skill to user
+    const userSkill = await client.userSkill.create({
       data: {
-        userId,
-        skillId,
+        userId: user.id,
+        skillId: this.skill.id,
+        value,
       },
     })
 
-    console.log(user)
+    return userSkill
   }
 }
 

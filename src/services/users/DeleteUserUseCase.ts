@@ -6,9 +6,6 @@ class DeleteUserUseCase {
       where: {
         id,
       },
-      include: {
-        skills: true,
-      },
     })
     return deletedUser
   }

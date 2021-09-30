@@ -3,24 +3,22 @@ import { DeleteUserUseCase } from '../src/services/users/DeleteUserUseCase'
 
 let id: string
 
-test('Should create an user', async () => {
-  const user = {
+test('Should create user', async () => {
+  const createUserUseCase = new CreateUserUseCase()
+  const newUser = await createUserUseCase.execute({
     name: 'Usuário Teste da Silva',
     email: 'usuario.teste@email.com',
-    bio: 'Trabalha com banco de dados',
     password: '123456',
-  }
-
-  const createUserUseCase = new CreateUserUseCase()
-  const newUser = await createUserUseCase.execute(user)
+    bio: 'To be or not to be, thats the question',
+  })
   id = newUser.id
 
-  expect(user.name).toBe(newUser.name)
+  expect(newUser.id).toBeDefined()
 })
 
-test('Should delete an user', async () => {
+test('Should delete user', async () => {
   const deleteUserUseCase = new DeleteUserUseCase()
   const deletedUser = await deleteUserUseCase.execute(id)
 
-  expect(deletedUser.id).toBe(id)
+  expect(deletedUser.id).toBeDefined()
 })
