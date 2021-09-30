@@ -1,4 +1,4 @@
-import { AuthenticateUserUseCase } from '../src/services/AuthenticateUserUseCase'
+import { AuthenticateUserUseCase } from '../src/services/auth/AuthenticateUserUseCase'
 
 test('Should do login', async () => {
   const loginData = {

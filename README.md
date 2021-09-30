@@ -1,6 +1,6 @@
-# APM Node
+# SKILLS - API
 
-Aplicação modelo para uma API-REST em NodeJS, implementando autenticação via JWT.
+API REST para gerenciar as habilidades dos funcionários de uma organização
 
 ## Tecnologias utilizadas
 
@@ -10,14 +10,4 @@ Aplicação modelo para uma API-REST em NodeJS, implementando autenticação via
 
 ## Modelo arquitetural
 
-![image info](./screenshots/architecture.png)
-
-## Use cases implementados nesse template
-
-- Create user
-- List users
-- Get user
-- Update user
-- Delete user
-- Login
-- Refresh token
+http -> express -> routes -> controllers -> services -> prisma -> database

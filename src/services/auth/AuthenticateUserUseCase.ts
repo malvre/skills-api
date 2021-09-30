@@ -1,7 +1,7 @@
-import { client } from '../prisma/client'
+import { client } from '../../prisma/client'
 import { compare } from 'bcryptjs'
-import { GenerateRefreshTokenProvider } from '../providers/GenerateRefreshTokenProvider'
-import { GenerateTokenProvider } from '../providers/GenerateTokenProvider'
+import { GenerateRefreshTokenProvider } from '../../providers/GenerateRefreshTokenProvider'
+import { GenerateTokenProvider } from '../../providers/GenerateTokenProvider'
 
 interface IRequest {
   email: string

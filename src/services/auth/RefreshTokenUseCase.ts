@@ -1,7 +1,7 @@
 import dayjs from 'dayjs'
-import { client } from '../prisma/client'
-import { GenerateRefreshTokenProvider } from '../providers/GenerateRefreshTokenProvider'
-import { GenerateTokenProvider } from '../providers/GenerateTokenProvider'
+import { client } from '../../prisma/client'
+import { GenerateRefreshTokenProvider } from '../../providers/GenerateRefreshTokenProvider'
+import { GenerateTokenProvider } from '../../providers/GenerateTokenProvider'
 
 class RefreshTokenUseCase {
   async execute(refresh_token: string) {

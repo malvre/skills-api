@@ -1,8 +1,8 @@
-# APM - API REST
+# SKILLS - API REST
 
 ## Sobre a aplicação
 
-API REST para ser usada como base em BBF (Back-end For Front-end)
+API REST para gerenciar as habilidades dos desenvolvedores de uma organização
 
 ## Casos de uso
 
@@ -12,14 +12,3 @@ API REST para ser usada como base em BBF (Back-end For Front-end)
 - [ ] Remove skill
 - [ ] Search by one or many skills
 - [ ] User detail
-
-## Entidades
-
-- user
-  - id
-  - name
-  - email
-  - password
-  - is_admin
-  - created_at
-  - updated_at

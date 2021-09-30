@@ -1,4 +1,4 @@
-import { client } from '../prisma/client'
+import { client } from '../../prisma/client'
 
 class DeleteUserUseCase {
   async execute(id: string) {

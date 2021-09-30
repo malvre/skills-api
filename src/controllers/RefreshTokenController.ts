@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import { RefreshTokenUseCase } from '../services/RefreshTokenUseCase'
+import { RefreshTokenUseCase } from '../services/auth/RefreshTokenUseCase'
 
 class RefreshTokenController {
   static async handle(req: Request, res: Response) {
